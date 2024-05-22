@@ -1,0 +1,1654 @@
+[
+    {
+        "id": "528d0fa7977fd052",
+        "type": "tab",
+        "label": "Inventory Back end",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "38ea10c3d3264f49",
+        "type": "group",
+        "z": "528d0fa7977fd052",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "dd496e95ebc14f35",
+            "d9391fffdb09190e",
+            "40abaa64c7cb8fb2",
+            "e785bb4589a3233e",
+            "39598e7138b18d01",
+            "bd396d49f9821177",
+            "0bb64487f83dc98a",
+            "5d6a686b690f469b",
+            "099f87941773f2f3",
+            "d213feed9c58c1bb",
+            "f03ded340c6cc965",
+            "475bda8407cac536",
+            "5a39dc1564e61ba4",
+            "add56a061172c1ae",
+            "d16768391dada221",
+            "7f355799d5864fea",
+            "f05d933cbffdbef6",
+            "8776e89568777ce6",
+            "7bb4678859088a5c",
+            "23288715edbe435b",
+            "b769a3ecd6f9816d",
+            "9d4abc3a7984ee9e",
+            "448ee5fa2c3e15ce"
+        ],
+        "x": 14,
+        "y": 1079,
+        "w": 1112,
+        "h": 802
+    },
+    {
+        "id": "e0856c4933a05381",
+        "type": "group",
+        "z": "528d0fa7977fd052",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "f28a37171293ab3d",
+            "d447ada944d71e19",
+            "178c3f346171bef9",
+            "cb140b3d05f05e6f",
+            "4d77c0e4ce6730bb",
+            "234508cd7d792428",
+            "709493ecfa899336",
+            "6e13f417f6f0b4a0",
+            "d18f9b8fa1bcd57a",
+            "f74611b7a9aa7e34",
+            "f3127613f05accb2",
+            "5aa0cc7d28f61b56",
+            "79aeba5ec0a1d9d9",
+            "b128e1d904969a49",
+            "88691aa34e202127",
+            "25c0eba5eeea344f",
+            "b68e50bec97dd727",
+            "80c72d6d53b420aa",
+            "12d0cd8db4b032d0",
+            "b89b4b5e9a130ee9",
+            "722bc4bc72b0cbba",
+            "8109eaaf6562d64c",
+            "4b3f5a227a0480d5",
+            "722afac4302a2dfa"
+        ],
+        "x": 14,
+        "y": 259,
+        "w": 1052,
+        "h": 742
+    },
+    {
+        "id": "efd7a6df0d959b17",
+        "type": "group",
+        "z": "528d0fa7977fd052",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "4ddd3ff0759235d3",
+            "7dadbdde85af3847",
+            "65eca2efae6e9a09",
+            "c269f9091f00bfe7",
+            "156601ed3fba7011",
+            "80747a5c2e1f36ce",
+            "e11988932cb583ed",
+            "678d432cee954914",
+            "a0fbd36fbb7daebd",
+            "30b5946ce209a1d5",
+            "88f1951c8cf7c075",
+            "180c136387117124",
+            "bdbe72deae8325bf",
+            "607f50c6d6497791",
+            "96a8f9a47855b160",
+            "c7c48492628675b3",
+            "79f2c73b7da81098",
+            "28bd616d79a12aea",
+            "b7a02709f71a47fd",
+            "e06b219da82b48b3",
+            "f9625787b935a5a5",
+            "124a179e3906b8c4",
+            "4d60760bd45299f4"
+        ],
+        "x": 14,
+        "y": 1959,
+        "w": 1032,
+        "h": 782
+    },
+    {
+        "id": "e3fa5df9c06746df",
+        "type": "mongodb",
+        "hostname": "mongodb-5978-ubos-82msz-mongodb-5978.ubos-82msz",
+        "topology": "direct",
+        "connectOptions": "authSource=admin",
+        "port": "27017",
+        "db": "mongodb-5978",
+        "name": "products db"
+    },
+    {
+        "id": "dd496e95ebc14f35",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "",
+        "url": "categories",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 1220,
+        "wires": [
+            [
+                "d9391fffdb09190e"
+            ]
+        ]
+    },
+    {
+        "id": "d9391fffdb09190e",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "create category",
+        "func": "if (typeof msg.payload === \"string\") {\n    msg.payload = JSON.parse(msg.payload);\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1220,
+        "wires": [
+            [
+                "40abaa64c7cb8fb2",
+                "e785bb4589a3233e"
+            ]
+        ]
+    },
+    {
+        "id": "40abaa64c7cb8fb2",
+        "type": "mongodb out",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "create category",
+        "collection": "categories",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 580,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "e785bb4589a3233e",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 560,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "39598e7138b18d01",
+        "type": "mongodb in",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "get all categories",
+        "collection": "categories",
+        "operation": "find",
+        "x": 770,
+        "y": 1380,
+        "wires": [
+            [
+                "5d6a686b690f469b",
+                "099f87941773f2f3"
+            ]
+        ]
+    },
+    {
+        "id": "bd396d49f9821177",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "",
+        "url": "categories",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 1380,
+        "wires": [
+            [
+                "d213feed9c58c1bb"
+            ]
+        ]
+    },
+    {
+        "id": "0bb64487f83dc98a",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "get all categories",
+        "func": "msg.payload = {}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1380,
+        "wires": [
+            [
+                "39598e7138b18d01"
+            ]
+        ]
+    },
+    {
+        "id": "5d6a686b690f469b",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "return categories",
+        "statusCode": "200",
+        "headers": {},
+        "x": 970,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "099f87941773f2f3",
+        "type": "debug",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "get categories log",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "d213feed9c58c1bb",
+        "type": "switch",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "check _id",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 340,
+        "y": 1380,
+        "wires": [
+            [
+                "0bb64487f83dc98a"
+            ],
+            [
+                "5a39dc1564e61ba4"
+            ]
+        ]
+    },
+    {
+        "id": "f03ded340c6cc965",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 940,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "475bda8407cac536",
+        "type": "debug",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "get categories id log",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "5a39dc1564e61ba4",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "get category by id",
+        "func": "node.warn(msg);\n\nif (typeof msg.payload === \"string\") {\n    msg.payload = JSON.parse(msg.payload);\n}\n\nmsg.payload = {\n    \"_id\": objectid(msg.payload._id)\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "objectid",
+                "module": "objectid"
+            }
+        ],
+        "x": 470,
+        "y": 1480,
+        "wires": [
+            [
+                "add56a061172c1ae"
+            ]
+        ]
+    },
+    {
+        "id": "add56a061172c1ae",
+        "type": "mongodb in",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "get category by id",
+        "collection": "categories",
+        "operation": "find",
+        "x": 710,
+        "y": 1480,
+        "wires": [
+            [
+                "f03ded340c6cc965",
+                "475bda8407cac536"
+            ]
+        ]
+    },
+    {
+        "id": "d16768391dada221",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "",
+        "url": "categories",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 1600,
+        "wires": [
+            [
+                "7f355799d5864fea"
+            ]
+        ]
+    },
+    {
+        "id": "7f355799d5864fea",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "update categories",
+        "func": "if (typeof msg.payload === \"string\") {\n    msg.payload = JSON.parse(msg.payload);\n}\n\nmsg.query={\n    _id: objectid(msg.payload._id)\n}\n\ndelete msg.payload._id\n\nmsg.payload={\n    $set: msg.payload\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "objectid",
+                "module": "objectid"
+            }
+        ],
+        "x": 390,
+        "y": 1600,
+        "wires": [
+            [
+                "f05d933cbffdbef6",
+                "8776e89568777ce6"
+            ]
+        ]
+    },
+    {
+        "id": "f05d933cbffdbef6",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 610,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "8776e89568777ce6",
+        "type": "mongodb out",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "put category",
+        "collection": "categories",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 630,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "7bb4678859088a5c",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "",
+        "url": "categories",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 1800,
+        "wires": [
+            [
+                "23288715edbe435b"
+            ]
+        ]
+    },
+    {
+        "id": "23288715edbe435b",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "delete category",
+        "func": "if (typeof msg.payload === \"string\") {\n    msg.payload = JSON.parse(msg.payload);\n}\n\nmsg.payload={\n    _id: objectid(msg.payload._id)\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "objectid",
+                "module": "objectid"
+            }
+        ],
+        "x": 380,
+        "y": 1800,
+        "wires": [
+            [
+                "b769a3ecd6f9816d",
+                "9d4abc3a7984ee9e"
+            ]
+        ]
+    },
+    {
+        "id": "b769a3ecd6f9816d",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 610,
+        "y": 1780,
+        "wires": []
+    },
+    {
+        "id": "9d4abc3a7984ee9e",
+        "type": "mongodb out",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "remove category",
+        "collection": "categories",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "delete",
+        "x": 650,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "448ee5fa2c3e15ce",
+        "type": "comment",
+        "z": "528d0fa7977fd052",
+        "g": "38ea10c3d3264f49",
+        "name": "categories API",
+        "info": "",
+        "x": 150,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "1e5b661f5d3b1975",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "name": "",
+        "url": "/aggregation-quantity",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 2880,
+        "wires": [
+            [
+                "9e19c82e5f59e834"
+            ]
+        ]
+    },
+    {
+        "id": "9e19c82e5f59e834",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "name": "set query",
+        "func": "msg.payload = [\n    { \"$addFields\": { \"objId\": { \"$toObjectId\": \"$category_id\" } } },\n    {\n        $lookup: {\n            from: 'categories',\n            localField: 'objId',\n            foreignField: '_id',\n            as: 'categories'\n        }\n    },\n    {\n        $group: {\n            _id: '$objId',\n            category: {$first: \"$categories.name\"},\n            totalQuantity: { $sum: '$quantity' }\n        }\n    }\n]\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 2880,
+        "wires": [
+            [
+                "e957fd1893bb2a58"
+            ]
+        ]
+    },
+    {
+        "id": "7443ef63ccc6341b",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 2880,
+        "wires": []
+    },
+    {
+        "id": "e957fd1893bb2a58",
+        "type": "mongodb in",
+        "z": "528d0fa7977fd052",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "",
+        "collection": "products",
+        "operation": "aggregate",
+        "x": 580,
+        "y": 2880,
+        "wires": [
+            [
+                "7443ef63ccc6341b"
+            ]
+        ]
+    },
+    {
+        "id": "a717700466c1501e",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "name": "",
+        "url": "/aggregation-top-sellers",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 2940,
+        "wires": [
+            [
+                "e431a4671f85888a"
+            ]
+        ]
+    },
+    {
+        "id": "e431a4671f85888a",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "name": "set query",
+        "func": "msg.payload = [\n    { \"$addFields\": { \"objId\": { \"$toObjectId\": \"$product_id\" } } },\n    {\n        $lookup: {\n            from: 'products',\n            localField: 'objId',\n            foreignField: '_id',\n            as: 'products'\n        }\n    },\n    {\n        $group: {\n            _id: \"$product_id\",\n            name: { $first: '$products.name'},\n            totalQuantity: { $sum: \"$quantity\" }\n        }\n    },\n    {\n        $sort: { totalQuantity: -1 }\n    },\n    {\n        $limit: 5\n    }\n]\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 2940,
+        "wires": [
+            [
+                "6de453a15b186cd6"
+            ]
+        ]
+    },
+    {
+        "id": "eea284ccdeaa3fe8",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 2940,
+        "wires": []
+    },
+    {
+        "id": "6de453a15b186cd6",
+        "type": "mongodb in",
+        "z": "528d0fa7977fd052",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "",
+        "collection": "orders",
+        "operation": "aggregate",
+        "x": 570,
+        "y": 2940,
+        "wires": [
+            [
+                "eea284ccdeaa3fe8"
+            ]
+        ]
+    },
+    {
+        "id": "ed41680a4ce7080e",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "name": "",
+        "url": "/aggregation-revenue-by-time",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 3000,
+        "wires": [
+            [
+                "28c3c03584d38782"
+            ]
+        ]
+    },
+    {
+        "id": "28c3c03584d38782",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "name": "set query",
+        "func": "let startDate = new Date(msg.payload.startDate);\nlet endDate = new Date(msg.payload.endDate);\n\nmsg.payload = [\n    {\n        $match: {\n            date: {\n                $gte: startDate.toISOString(),\n                $lt: endDate.toISOString()\n            }\n        }\n    },\n    {\n        $project: {\n            revenue: { $multiply: [\"$quantity\", \"$cost\"] }\n        }\n    },\n    {\n        $group: { \n            _id: null,\n            totalRevenue: { $sum: \"$revenue\" }\n        }\n    }\n]\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 3000,
+        "wires": [
+            [
+                "078c31996b4590da"
+            ]
+        ]
+    },
+    {
+        "id": "5dfb4f626a2a7cb0",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 3000,
+        "wires": []
+    },
+    {
+        "id": "078c31996b4590da",
+        "type": "mongodb in",
+        "z": "528d0fa7977fd052",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "",
+        "collection": "orders",
+        "operation": "aggregate",
+        "x": 570,
+        "y": 3000,
+        "wires": [
+            [
+                "5dfb4f626a2a7cb0"
+            ]
+        ]
+    },
+    {
+        "id": "292310ce8ab5d86b",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "name": "",
+        "url": "/aggregation-low-stock",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 3060,
+        "wires": [
+            [
+                "cba1eb5d958f7b21"
+            ]
+        ]
+    },
+    {
+        "id": "cba1eb5d958f7b21",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "name": "set query",
+        "func": "msg.payload = [\n    { \"$addFields\": { \"string_id\": { \"$toString\": \"$_id\" } } },\n    {\n        $lookup: {\n            from: 'orders',\n            localField: 'string_id',\n            foreignField: 'product_id',\n            as: 'orders'\n        }\n    },\n    {\n        $unwind: {\n            path: '$orders',\n            preserveNullAndEmptyArrays: false \n        }\n    },\n    {\n        $group: { \n            _id: '$_id',\n            name: { $first: '$name' },\n            price: { $first: '$price' },\n            quantity: { $first: '$quantity' },\n            totalOrdered: { $sum: '$orders.quantity' } \n        }\n    },\n    {\n        $match: {\n            quantity: { $lt: 10 }, \n        }\n    },\n]\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 3060,
+        "wires": [
+            [
+                "439d374c44f2a95f"
+            ]
+        ]
+    },
+    {
+        "id": "9ad3cfb89e82e150",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 3060,
+        "wires": []
+    },
+    {
+        "id": "439d374c44f2a95f",
+        "type": "mongodb in",
+        "z": "528d0fa7977fd052",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "",
+        "collection": "products",
+        "operation": "aggregate",
+        "x": 580,
+        "y": 3060,
+        "wires": [
+            [
+                "9ad3cfb89e82e150"
+            ]
+        ]
+    },
+    {
+        "id": "f28a37171293ab3d",
+        "type": "mongodb in",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "get all products db",
+        "collection": "products",
+        "operation": "find",
+        "x": 730,
+        "y": 500,
+        "wires": [
+            [
+                "d18f9b8fa1bcd57a",
+                "b128e1d904969a49"
+            ]
+        ]
+    },
+    {
+        "id": "d447ada944d71e19",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "",
+        "url": "products",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 380,
+        "wires": [
+            [
+                "178c3f346171bef9",
+                "234508cd7d792428"
+            ]
+        ]
+    },
+    {
+        "id": "178c3f346171bef9",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "create product ",
+        "func": "if (typeof msg.payload === \"string\") {\n    msg.payload = JSON.parse(msg.payload);\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 380,
+        "wires": [
+            [
+                "cb140b3d05f05e6f",
+                "4d77c0e4ce6730bb"
+            ]
+        ]
+    },
+    {
+        "id": "cb140b3d05f05e6f",
+        "type": "mongodb out",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "",
+        "collection": "products",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 560,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "4d77c0e4ce6730bb",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 520,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "234508cd7d792428",
+        "type": "debug",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "post products log",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "709493ecfa899336",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "",
+        "url": "products",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 500,
+        "wires": [
+            [
+                "88691aa34e202127"
+            ]
+        ]
+    },
+    {
+        "id": "6e13f417f6f0b4a0",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "get all products",
+        "func": "msg.payload = {}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 500,
+        "wires": [
+            [
+                "f28a37171293ab3d"
+            ]
+        ]
+    },
+    {
+        "id": "d18f9b8fa1bcd57a",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "return products",
+        "statusCode": "200",
+        "headers": {},
+        "x": 920,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "f74611b7a9aa7e34",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "",
+        "url": "products",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 740,
+        "wires": [
+            [
+                "f3127613f05accb2"
+            ]
+        ]
+    },
+    {
+        "id": "f3127613f05accb2",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "update products",
+        "func": "if (typeof msg.payload === \"string\") {\n    msg.payload = JSON.parse(msg.payload);\n}\n\nmsg.query={\n    _id: objectid(msg.payload._id)\n}\n\ndelete msg.payload._id\n\nmsg.payload={\n    $set: msg.payload\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "objectid",
+                "module": "objectid"
+            }
+        ],
+        "x": 340,
+        "y": 740,
+        "wires": [
+            [
+                "5aa0cc7d28f61b56",
+                "79aeba5ec0a1d9d9"
+            ]
+        ]
+    },
+    {
+        "id": "5aa0cc7d28f61b56",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 570,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "79aeba5ec0a1d9d9",
+        "type": "mongodb out",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "put product",
+        "collection": "products",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 590,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "b128e1d904969a49",
+        "type": "debug",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "get products log",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "88691aa34e202127",
+        "type": "switch",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "check _id",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 300,
+        "y": 500,
+        "wires": [
+            [
+                "6e13f417f6f0b4a0"
+            ],
+            [
+                "80c72d6d53b420aa"
+            ]
+        ]
+    },
+    {
+        "id": "25c0eba5eeea344f",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 900,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b68e50bec97dd727",
+        "type": "debug",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "get products id log",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 930,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "80c72d6d53b420aa",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "get product by id",
+        "func": "node.warn(msg);\n\nif (typeof msg.payload === \"string\") {\n    msg.payload = JSON.parse(msg.payload);\n}\n\nmsg.payload = {\n    \"_id\": objectid(msg.payload._id)\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "objectid",
+                "module": "objectid"
+            }
+        ],
+        "x": 430,
+        "y": 600,
+        "wires": [
+            [
+                "12d0cd8db4b032d0"
+            ]
+        ]
+    },
+    {
+        "id": "12d0cd8db4b032d0",
+        "type": "mongodb in",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "get product by id",
+        "collection": "products",
+        "operation": "find",
+        "x": 670,
+        "y": 600,
+        "wires": [
+            [
+                "25c0eba5eeea344f",
+                "b68e50bec97dd727"
+            ]
+        ]
+    },
+    {
+        "id": "b89b4b5e9a130ee9",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "",
+        "url": "products",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 920,
+        "wires": [
+            [
+                "722bc4bc72b0cbba"
+            ]
+        ]
+    },
+    {
+        "id": "722bc4bc72b0cbba",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "delete products",
+        "func": "if (typeof msg.payload === \"string\") {\n    msg.payload = JSON.parse(msg.payload);\n}\n\nmsg.payload={\n    _id: objectid(msg.payload._id)\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "objectid",
+                "module": "objectid"
+            }
+        ],
+        "x": 340,
+        "y": 920,
+        "wires": [
+            [
+                "8109eaaf6562d64c",
+                "4b3f5a227a0480d5"
+            ]
+        ]
+    },
+    {
+        "id": "8109eaaf6562d64c",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 570,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "4b3f5a227a0480d5",
+        "type": "mongodb out",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "remove product",
+        "collection": "products",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "delete",
+        "x": 600,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "722afac4302a2dfa",
+        "type": "comment",
+        "z": "528d0fa7977fd052",
+        "g": "e0856c4933a05381",
+        "name": "products API",
+        "info": "",
+        "x": 110,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "4ddd3ff0759235d3",
+        "type": "comment",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "orders API",
+        "info": "",
+        "x": 100,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "7dadbdde85af3847",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "",
+        "url": "orders",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 2080,
+        "wires": [
+            [
+                "65eca2efae6e9a09"
+            ]
+        ]
+    },
+    {
+        "id": "65eca2efae6e9a09",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "create order",
+        "func": "if (typeof msg.payload === \"string\") {\n    msg.payload = JSON.parse(msg.payload);\n}\n\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 2080,
+        "wires": [
+            [
+                "c269f9091f00bfe7",
+                "156601ed3fba7011"
+            ]
+        ]
+    },
+    {
+        "id": "c269f9091f00bfe7",
+        "type": "mongodb out",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "create order",
+        "collection": "orders",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 530,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "156601ed3fba7011",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 520,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "80747a5c2e1f36ce",
+        "type": "mongodb in",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "get all orders",
+        "collection": "orders",
+        "operation": "find",
+        "x": 710,
+        "y": 2240,
+        "wires": [
+            [
+                "a0fbd36fbb7daebd",
+                "30b5946ce209a1d5"
+            ]
+        ]
+    },
+    {
+        "id": "e11988932cb583ed",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "",
+        "url": "orders",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 2240,
+        "wires": [
+            [
+                "88f1951c8cf7c075"
+            ]
+        ]
+    },
+    {
+        "id": "678d432cee954914",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "get all orders",
+        "func": "msg.payload = {}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 2240,
+        "wires": [
+            [
+                "80747a5c2e1f36ce"
+            ]
+        ]
+    },
+    {
+        "id": "a0fbd36fbb7daebd",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "return orders",
+        "statusCode": "200",
+        "headers": {},
+        "x": 910,
+        "y": 2240,
+        "wires": []
+    },
+    {
+        "id": "30b5946ce209a1d5",
+        "type": "debug",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "get orders log",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "88f1951c8cf7c075",
+        "type": "switch",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "check _id",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "empty"
+            },
+            {
+                "t": "nempty"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 300,
+        "y": 2240,
+        "wires": [
+            [
+                "678d432cee954914"
+            ],
+            [
+                "607f50c6d6497791"
+            ]
+        ]
+    },
+    {
+        "id": "180c136387117124",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 900,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "bdbe72deae8325bf",
+        "type": "debug",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "get orders id log",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 2380,
+        "wires": []
+    },
+    {
+        "id": "607f50c6d6497791",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "get order by id",
+        "func": "node.warn(msg);\n\nif (typeof msg.payload === \"string\") {\n    msg.payload = JSON.parse(msg.payload);\n}\n\nmsg.payload = {\n    \"_id\": objectid(msg.payload._id)\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "objectid",
+                "module": "objectid"
+            }
+        ],
+        "x": 420,
+        "y": 2340,
+        "wires": [
+            [
+                "96a8f9a47855b160"
+            ]
+        ]
+    },
+    {
+        "id": "96a8f9a47855b160",
+        "type": "mongodb in",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "get order by id",
+        "collection": "orders",
+        "operation": "find",
+        "x": 660,
+        "y": 2340,
+        "wires": [
+            [
+                "180c136387117124",
+                "bdbe72deae8325bf"
+            ]
+        ]
+    },
+    {
+        "id": "c7c48492628675b3",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "",
+        "url": "orders",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 2460,
+        "wires": [
+            [
+                "79f2c73b7da81098"
+            ]
+        ]
+    },
+    {
+        "id": "79f2c73b7da81098",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "update orders",
+        "func": "if (typeof msg.payload === \"string\") {\n    msg.payload = JSON.parse(msg.payload);\n}\n\nmsg.query={\n    _id: objectid(msg.payload._id)\n}\n\ndelete msg.payload._id\n\nmsg.payload={\n    $set: msg.payload\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "objectid",
+                "module": "objectid"
+            }
+        ],
+        "x": 340,
+        "y": 2460,
+        "wires": [
+            [
+                "28bd616d79a12aea",
+                "b7a02709f71a47fd"
+            ]
+        ]
+    },
+    {
+        "id": "28bd616d79a12aea",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 570,
+        "y": 2440,
+        "wires": []
+    },
+    {
+        "id": "b7a02709f71a47fd",
+        "type": "mongodb out",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "put order",
+        "collection": "orders",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 580,
+        "y": 2500,
+        "wires": []
+    },
+    {
+        "id": "e06b219da82b48b3",
+        "type": "http in",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "",
+        "url": "orders",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 2660,
+        "wires": [
+            [
+                "f9625787b935a5a5"
+            ]
+        ]
+    },
+    {
+        "id": "f9625787b935a5a5",
+        "type": "function",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "delete order",
+        "func": "if (typeof msg.payload === \"string\") {\n    msg.payload = JSON.parse(msg.payload);\n}\n\nmsg.payload={\n    _id: objectid(msg.payload._id)\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "objectid",
+                "module": "objectid"
+            }
+        ],
+        "x": 330,
+        "y": 2660,
+        "wires": [
+            [
+                "124a179e3906b8c4",
+                "4d60760bd45299f4"
+            ]
+        ]
+    },
+    {
+        "id": "124a179e3906b8c4",
+        "type": "http response",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 570,
+        "y": 2640,
+        "wires": []
+    },
+    {
+        "id": "4d60760bd45299f4",
+        "type": "mongodb out",
+        "z": "528d0fa7977fd052",
+        "g": "efd7a6df0d959b17",
+        "mongodb": "e3fa5df9c06746df",
+        "name": "remove order",
+        "collection": "orders",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "delete",
+        "x": 590,
+        "y": 2700,
+        "wires": []
+    }
+]
